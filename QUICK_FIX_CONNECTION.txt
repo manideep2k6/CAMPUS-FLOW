@@ -1,0 +1,37 @@
+QUICK FIX: "Connection Refused" Error
+=====================================
+
+YOU'RE USING THE WRONG PORT!
+
+Problem:
+- You're accessing: localhost:8080
+- But XAMPP Apache runs on port 80
+- That's why you get "connection refused"
+
+QUICK FIX (3 Steps):
+
+1. START XAMPP
+   - Open XAMPP Control Panel
+   - Click "Start" for Apache (wait for GREEN)
+   - Click "Start" for MySQL (wait for GREEN)
+
+2. USE CORRECT URL
+   - Use: http://localhost/campusflow/
+   - NOT: localhost:8080
+   - NOT: http://127.0.0.1:5500/
+
+3. CHECK PROJECT LOCATION
+   - Must be in: C:\xampp\htdocs\campusflow\
+   - If not, copy it there
+
+THAT'S IT!
+
+Test:
+1. Open: http://localhost/ (should show XAMPP page)
+2. Open: http://localhost/campusflow/ (should show login page)
+
+If Apache won't start:
+- Port 80 is in use (close Skype)
+- Or change Apache port to 8080 in XAMPP config
+- Then use: http://localhost:8080/campusflow/
+

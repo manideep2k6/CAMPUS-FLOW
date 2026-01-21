@@ -1,0 +1,139 @@
+FIX: "localhost refused to connect" ERROR
+==========================================
+
+PROBLEM:
+You're trying to access: localhost:8080
+But nothing is running on port 8080!
+
+SOLUTION:
+XAMPP Apache runs on port 80 (default), not 8080.
+You should access: http://localhost/campusflow/
+
+STEP-BY-STEP FIX:
+
+STEP 1: CHECK XAMPP STATUS
+---------------------------
+1. Open XAMPP Control Panel
+2. Look at Apache - is it GREEN (Running)?
+   - If RED or not running: Click "Start" button
+   - Wait until it turns GREEN
+3. Look at MySQL - is it GREEN (Running)?
+   - If RED or not running: Click "Start" button
+   - Wait until it turns GREEN
+
+STEP 2: VERIFY APACHE IS RUNNING
+---------------------------------
+1. Open browser
+2. Go to: http://localhost/
+3. You should see "XAMPP" welcome page
+4. If you see this, Apache is working! ✅
+
+STEP 3: CHECK YOUR PROJECT LOCATION
+------------------------------------
+Your project MUST be in:
+C:\xampp\htdocs\campusflow\
+
+Check if this folder exists:
+1. Open File Explorer
+2. Go to: C:\xampp\htdocs\
+3. Look for folder: campusflow
+4. If it doesn't exist:
+   - Copy your project folder there
+   - Rename it to: campusflow
+
+STEP 4: ACCESS YOUR APPLICATION
+--------------------------------
+Use these URLs (NOT port 8080):
+
+✅ CORRECT URLs:
+- http://localhost/campusflow/
+- http://localhost/campusflow/index.html
+- http://localhost/campusflow/check_setup.php
+
+❌ WRONG URLs (Don't use these):
+- localhost:8080 (nothing runs here)
+- http://127.0.0.1:5500/ (Live Server)
+- file:///C:/xampp/htdocs/... (file:// protocol)
+
+STEP 5: IF APACHE WON'T START
+------------------------------
+Problem: Apache shows RED in XAMPP
+
+Solutions:
+1. Port 80 is already in use:
+   - Close Skype (it uses port 80)
+   - Close other web servers
+   - Or change Apache port in XAMPP config
+
+2. Change Apache port:
+   - Open XAMPP Control Panel
+   - Click "Config" next to Apache
+   - Select "httpd.conf"
+   - Find: Listen 80
+   - Change to: Listen 8080
+   - Save and restart Apache
+   - Then use: http://localhost:8080/campusflow/
+
+STEP 6: TEST YOUR SETUP
+-----------------------
+1. Open: http://localhost/campusflow/check_setup.php
+2. This will show you what's working and what's not
+3. Fix any red errors shown
+
+COMMON ISSUES:
+
+Issue 1: "Apache won't start"
+→ Solution: Check if port 80 is in use
+→ Close Skype or other apps using port 80
+→ Or change Apache port to 8080 (see Step 5)
+
+Issue 2: "Can't find files"
+→ Solution: Make sure files are in C:\xampp\htdocs\campusflow\
+→ Check folder name is exactly "campusflow"
+
+Issue 3: "Database connection failed"
+→ Solution: Make sure MySQL is running (green in XAMPP)
+→ Create database "campus_flow" in phpMyAdmin
+→ Import database.sql
+
+QUICK CHECKLIST:
+----------------
+[ ] XAMPP Control Panel is open
+[ ] Apache is GREEN (Running)
+[ ] MySQL is GREEN (Running)
+[ ] Project is in: C:\xampp\htdocs\campusflow\
+[ ] Accessing via: http://localhost/campusflow/
+[ ] NOT using: localhost:8080 (unless you changed Apache port)
+
+TEST COMMANDS:
+--------------
+1. Test Apache: http://localhost/
+   → Should show XAMPP welcome page
+
+2. Test Project: http://localhost/campusflow/
+   → Should show login page
+
+3. Test Setup: http://localhost/campusflow/check_setup.php
+   → Should show diagnostic page
+
+IF STILL NOT WORKING:
+---------------------
+1. Check XAMPP error logs:
+   - C:\xampp\apache\logs\error.log
+   - Look for error messages
+
+2. Try different port:
+   - Change Apache to port 8080 (see Step 5)
+   - Then use: http://localhost:8080/campusflow/
+
+3. Check Windows Firewall:
+   - Make sure XAMPP/Apache is allowed
+   - Or temporarily disable firewall to test
+
+REMEMBER:
+---------
+- XAMPP Apache = Port 80 (or whatever you set)
+- Access via: http://localhost/campusflow/
+- NOT: localhost:8080 (unless you changed port)
+- Make sure Apache is RUNNING (green in XAMPP)
+

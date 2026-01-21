@@ -1,0 +1,142 @@
+CAMPUS FLOW - COMPLETE INSTALLATION GUIDE
+==========================================
+
+QUICK SETUP (5 Minutes)
+------------------------
+
+1. INSTALL XAMPP
+   - Download and install XAMPP from https://www.apachefriends.org/
+   - Make sure Apache and MySQL are installed
+
+2. START XAMPP SERVICES
+   - Open XAMPP Control Panel
+   - Start Apache
+   - Start MySQL
+
+3. COPY PROJECT FILES
+   - Copy all project files to: C:\xampp\htdocs\campusflow\
+   - Make sure folder structure is maintained:
+     * api/ folder (with all PHP files)
+     * js/ folder (with all JavaScript files)
+     * All HTML files in root
+     * config.php in root
+     * database.sql in root
+
+4. CREATE DATABASE
+   - Open browser and go to: http://localhost/phpmyadmin
+   - Click on "New" to create a new database
+   - Name it: campus_flow
+   - Click "Create"
+   - Select the database from left sidebar
+   - Click on "Import" tab
+   - Click "Choose File" and select database.sql
+   - Click "Go" to import
+
+5. VERIFY SETUP
+   - Open browser and go to: http://localhost/campusflow/setup_check.php
+   - This will verify all files and database connections
+   - Fix any issues shown
+
+6. ACCESS APPLICATION
+   - Open browser and go to: http://localhost/campusflow/
+   - Register a new account or login with:
+     Username: admin
+     Password: password
+
+DETAILED FILE STRUCTURE
+-----------------------
+campusflow/
+├── index.html              (Login/Register page)
+├── dashboard.html          (Main dashboard)
+├── communities.html        (Communities page)
+├── projects.html           (Projects page)
+├── events.html             (Events page)
+├── profile.html            (User profile)
+├── config.php              (Database configuration)
+├── database.sql            (Database schema)
+├── setup_check.php         (Setup verification)
+├── .htaccess               (Apache configuration)
+├── README.txt              (Quick reference)
+├── api/
+│   ├── auth.php            (Authentication API)
+│   ├── communities.php     (Communities API)
+│   ├── projects.php        (Projects API)
+│   ├── events.php          (Events API)
+│   └── dashboard.php       (Dashboard API)
+└── js/
+    ├── auth.js             (Authentication functions)
+    ├── dashboard.js        (Dashboard functions)
+    ├── communities.js      (Communities functions)
+    ├── projects.js         (Projects functions)
+    └── events.js           (Events functions)
+
+DATABASE CONFIGURATION
+----------------------
+Edit config.php if your MySQL settings are different:
+- DB_HOST: localhost (default)
+- DB_USER: root (default)
+- DB_PASS: (empty for default XAMPP)
+- DB_NAME: campus_flow
+
+DEFAULT LOGIN CREDENTIALS
+-------------------------
+After importing database.sql, you can login with:
+1. Username: admin | Password: password
+2. Username: john_doe | Password: password
+3. Username: jane_smith | Password: password
+
+FEATURES
+--------
+✓ User Registration & Login
+✓ Dashboard with overview
+✓ Create and Join Communities
+✓ Create and Join Projects
+✓ Create and Attend Events
+✓ User Profile
+✓ Responsive Design
+✓ Modern UI with CSS animations
+
+TROUBLESHOOTING
+---------------
+
+Problem: "Connection failed" error
+Solution: Make sure MySQL is running in XAMPP
+
+Problem: "404 Not Found" error
+Solution: Check that files are in correct folder and Apache is running
+
+Problem: "Database doesn't exist" error
+Solution: Create database 'campus_flow' and import database.sql
+
+Problem: Pages show but data doesn't load
+Solution: Check browser console (F12) for JavaScript errors
+
+Problem: Can't login after registration
+Solution: Check that sessions are enabled in PHP (usually enabled by default)
+
+SUPPORT
+-------
+If you encounter issues:
+1. Run setup_check.php to identify problems
+2. Check XAMPP error logs
+3. Check browser console for JavaScript errors
+4. Verify database connection in config.php
+
+TESTING CHECKLIST
+-----------------
+[ ] Database imported successfully
+[ ] Can access index.html
+[ ] Can register new user
+[ ] Can login with registered user
+[ ] Dashboard loads correctly
+[ ] Can create community
+[ ] Can join community
+[ ] Can create project
+[ ] Can join project
+[ ] Can create event
+[ ] Can attend event
+[ ] Profile page displays user info
+
+ENJOY YOUR CAMPUS FLOW APPLICATION!
+===================================
+

@@ -1,0 +1,113 @@
+HOW TO FIX 500 ERROR - STEP BY STEP
+=====================================
+
+PROBLEM:
+You're getting "HTTP error! status: 500" when trying to register/login.
+
+ROOT CAUSE:
+You're using VS Code Live Server (port 5500) which DOES NOT run PHP.
+PHP applications MUST run on XAMPP Apache.
+
+SOLUTION:
+
+STEP 1: STOP VS CODE LIVE SERVER
+---------------------------------
+- Close the Live Server (click "Go Live" button again or close port 5500)
+- Or close VS Code if needed
+
+STEP 2: COPY PROJECT TO XAMPP
+------------------------------
+1. Copy your entire project folder to:
+   C:\xampp\htdocs\campusflow\
+   
+2. Make sure the folder structure is:
+   C:\xampp\htdocs\campusflow\
+   ├── index.html
+   ├── auth.js
+   ├── config.php
+   ├── api/
+   │   └── auth.php
+   └── (all other files)
+
+STEP 3: START XAMPP
+--------------------
+1. Open XAMPP Control Panel
+2. Click "Start" for Apache (should turn green)
+3. Click "Start" for MySQL (should turn green)
+4. Wait until both show "Running"
+
+STEP 4: CREATE DATABASE
+-----------------------
+1. Open browser: http://localhost/phpmyadmin
+2. Click "New" on left sidebar
+3. Database name: campus_flow
+4. Click "Create"
+5. Select "campus_flow" database
+6. Click "Import" tab
+7. Choose "database.sql" file
+8. Click "Go"
+
+STEP 5: TEST PHP
+----------------
+1. Open browser: http://localhost/campusflow/test_php.php
+2. Check all items show green/success
+3. If database error, make sure MySQL is running
+
+STEP 6: ACCESS APPLICATION
+---------------------------
+1. Open browser: http://localhost/campusflow/
+2. Try to register/login
+3. Should work now!
+
+IMPORTANT URLS:
+---------------
+- Application: http://localhost/campusflow/
+- PHP Test: http://localhost/campusflow/test_php.php
+- API Test: http://localhost/campusflow/test_api.php
+- phpMyAdmin: http://localhost/phpmyadmin
+
+COMMON ISSUES:
+--------------
+
+Issue: "Apache won't start"
+Solution: 
+- Check if port 80 is in use
+- Stop Skype or other apps using port 80
+- Or change Apache port in XAMPP config
+
+Issue: "MySQL won't start"
+Solution:
+- Check if port 3306 is in use
+- Restart XAMPP
+- Check XAMPP error logs
+
+Issue: "Database connection failed"
+Solution:
+- Make sure MySQL is running
+- Check database name in config.php is "campus_flow"
+- Verify database exists in phpMyAdmin
+
+Issue: "404 Not Found"
+Solution:
+- Check files are in: C:\xampp\htdocs\campusflow\
+- Verify folder name is exactly "campusflow"
+- Check Apache is running
+
+QUICK CHECKLIST:
+----------------
+[ ] XAMPP Apache is running
+[ ] XAMPP MySQL is running
+[ ] Files are in C:\xampp\htdocs\campusflow\
+[ ] Database "campus_flow" exists
+[ ] database.sql is imported
+[ ] Accessing via http://localhost/campusflow/
+[ ] NOT using port 5500 (Live Server)
+
+TEST COMMANDS:
+--------------
+1. Test PHP: http://localhost/campusflow/test_php.php
+2. Test API: http://localhost/campusflow/test_api.php
+3. Test Database: http://localhost/campusflow/test_php.php
+
+If all tests pass, your application should work!
+

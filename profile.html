@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Campus Flow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #667eea;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-header {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .profile-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .profile-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .profile-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-row {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #555;
+            width: 150px;
+        }
+
+        .info-value {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">CF</div>
+                <span>Campus Flow</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="communities.html">Communities</a>
+                <a href="projects.html">Projects</a>
+                <a href="events.html">Events</a>
+                <a href="profile.html" class="active">Profile</a>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">U</div>
+            <h1 id="profileName">Loading...</h1>
+            <p id="profileEmail">Loading...</p>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-row">
+                <div class="info-label">Username:</div>
+                <div class="info-value" id="profileUsername">Loading...</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Email:</div>
+                <div class="info-value" id="profileEmailInfo">Loading...</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Bio:</div>
+                <div class="info-value" id="profileBio">No bio available</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const user = await requireAuth();
+            if (!user) return;
+
+            document.getElementById('profileName').textContent = `${user.first_name} ${user.last_name}`;
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('profileEmailInfo').textContent = user.email;
+            document.getElementById('profileUsername').textContent = user.username;
+            document.getElementById('profileBio').textContent = user.bio || 'No bio available';
+            
+            const avatar = document.getElementById('profileAvatar');
+            if (user.first_name) {
+                avatar.textContent = user.first_name.charAt(0).toUpperCase();
+            }
+        });
+    </script>
+</body>
+</html>
+

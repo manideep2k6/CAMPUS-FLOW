@@ -1,0 +1,112 @@
+URGENT: HOW TO FIX 500 ERROR RIGHT NOW
+======================================
+
+⚠️ YOU ARE USING THE WRONG SERVER! ⚠️
+
+PROBLEM:
+- You're accessing via: http://127.0.0.1:5500/
+- This is VS Code Live Server
+- Live Server DOES NOT run PHP files
+- That's why you get 500 error
+
+SOLUTION - DO THIS NOW:
+
+STEP 1: STOP LIVE SERVER
+------------------------
+1. In VS Code, click the "Go Live" button to stop it
+2. OR close the browser tab using port 5500
+
+STEP 2: COPY PROJECT TO XAMPP
+------------------------------
+1. Copy your entire "mani project" folder
+2. Paste it to: C:\xampp\htdocs\campusflow\
+3. Make sure the folder name is "campusflow" (all lowercase)
+
+STEP 3: START XAMPP
+--------------------
+1. Open XAMPP Control Panel
+2. Click "Start" button for Apache (wait until it turns green)
+3. Click "Start" button for MySQL (wait until it turns green)
+4. Both must show "Running" status
+
+STEP 4: SETUP DATABASE
+-----------------------
+1. Open browser: http://localhost/phpmyadmin
+2. Click "New" on left sidebar
+3. Database name: campus_flow
+4. Click "Create"
+5. Select "campus_flow" database
+6. Click "Import" tab
+7. Click "Choose File" → Select "database.sql"
+8. Click "Go" button
+
+STEP 5: TEST
+------------
+1. Open: http://localhost/campusflow/check_setup.php
+2. Check if all tests pass (green)
+3. If all green, open: http://localhost/campusflow/
+4. Try to register/login
+
+IMPORTANT URLs (USE THESE):
+---------------------------
+✅ http://localhost/campusflow/
+✅ http://localhost/campusflow/check_setup.php
+✅ http://localhost/campusflow/api/simple_test.php
+✅ http://localhost/campusflow/test_php.php
+
+❌ DO NOT USE: http://127.0.0.1:5500/ (This won't work!)
+
+QUICK DIAGNOSTIC:
+-----------------
+1. Open: http://localhost/campusflow/api/simple_test.php
+   - Should show: {"status":"ok","message":"PHP is working!"}
+   - If you see this, PHP is working!
+
+2. Open: http://localhost/campusflow/check_setup.php
+   - This will show you exactly what's wrong
+   - Fix any red errors shown
+
+COMMON FIXES:
+-------------
+❌ Error: "Apache won't start"
+   → Check if port 80 is in use
+   → Stop Skype or other apps
+   → Change Apache port in XAMPP config
+
+❌ Error: "MySQL won't start"
+   → Check if port 3306 is in use
+   → Restart XAMPP
+   → Check XAMPP error logs
+
+❌ Error: "Database connection failed"
+   → Make sure MySQL is running (green in XAMPP)
+   → Check database "campus_flow" exists
+   → Verify username/password in config.php
+
+❌ Error: "Files not found"
+   → Check files are in: C:\xampp\htdocs\campusflow\
+   → Verify folder structure is correct
+
+TEST CHECKLIST:
+---------------
+[ ] Apache is running (green in XAMPP)
+[ ] MySQL is running (green in XAMPP)
+[ ] Files copied to C:\xampp\htdocs\campusflow\
+[ ] Database "campus_flow" created
+[ ] database.sql imported
+[ ] Accessing via http://localhost/campusflow/
+[ ] NOT using port 5500
+
+IF STILL NOT WORKING:
+---------------------
+1. Run: http://localhost/campusflow/check_setup.php
+2. Look for red error messages
+3. Fix each error one by one
+4. Check browser console (F12) for JavaScript errors
+
+REMEMBER:
+---------
+- XAMPP Apache = Runs PHP ✅
+- VS Code Live Server = Does NOT run PHP ❌
+- You MUST use XAMPP for PHP applications!
+

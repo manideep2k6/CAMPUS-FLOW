@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Flow - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .auth-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .switch-form a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            display: none;
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="logo">
+                <div class="logo-icon">CF</div>
+                <h1>Campus Flow</h1>
+            </div>
+            <p class="tagline">Connect, collaborate, and thrive on campus</p>
+            
+            <div id="loginForm" class="form-container">
+                <h2>Login</h2>
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginUsername">Username or Email</label>
+                        <input type="text" id="loginUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p class="switch-form">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+
+            <div id="registerForm" class="form-container" style="display: none;">
+                <h2>Register</h2>
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label for="regFirstName">First Name</label>
+                        <input type="text" id="regFirstName" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regLastName">Last Name</label>
+                        <input type="text" id="regLastName" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regUsername">Username</label>
+                        <input type="text" id="regUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <p class="switch-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

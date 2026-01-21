@@ -1,0 +1,58 @@
+QUICK FIX FOR NETWORK ERROR ON LOGIN/REGISTER
+=============================================
+
+MOST COMMON FIXES (Try these first):
+
+1. CHECK XAMPP IS RUNNING
+   - Open XAMPP Control Panel
+   - Make sure Apache shows "Running" (green)
+   - Make sure MySQL shows "Running" (green)
+   - If not, click "Start" button
+
+2. CHECK YOU'RE USING THE CORRECT URL
+   - Use: http://localhost/campusflow/
+   - NOT: file:///C:/xampp/htdocs/campusflow/
+   - The URL must start with "http://"
+
+3. TEST THE API DIRECTLY
+   - Open browser and go to: http://localhost/campusflow/test_api.php
+   - This will tell you what's wrong
+   - Fix any issues shown
+
+4. CHECK DATABASE EXISTS
+   - Go to: http://localhost/phpmyadmin
+   - Look for database named "campus_flow"
+   - If it doesn't exist, create it and import database.sql
+
+5. CHECK FILE PATHS
+   - Make sure files are in: C:\xampp\htdocs\campusflow\
+   - Verify these files exist:
+     * api/auth.php
+     * js/auth.js
+     * config.php
+     * index.html
+
+6. CHECK BROWSER CONSOLE
+   - Press F12 in browser
+   - Go to "Console" tab
+   - Try to login
+   - Look for red error messages
+   - Share the error if you see one
+
+7. RESTART SERVICES
+   - In XAMPP, click "Stop" for Apache
+   - Wait 2 seconds
+   - Click "Start" for Apache
+   - Try again
+
+IF STILL NOT WORKING:
+
+1. Run test_api.php to see detailed errors
+2. Check TROUBLESHOOTING.md for more solutions
+3. Verify all files are in correct folders
+4. Make sure folder name is exactly "campusflow" (no spaces)
+
+TEST FILE CREATED:
+- test_api.php - Run this to diagnose issues
+- Check the output to see what's wrong
+

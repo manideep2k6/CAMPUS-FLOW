@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Flow - Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .step {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .step h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .step p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .step ul {
+            margin-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+        .step code {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.3s;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .alert strong {
+            color: #856404;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .success strong {
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .error strong {
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Campus Flow - Setup Guide</h1>
+        <p class="subtitle">Follow these steps to get your application running</p>
+
+        <div class="error">
+            <strong>❌ Connection Refused Error?</strong><br>
+            You're trying to access <code>localhost:8080</code> but nothing is running there!<br>
+            XAMPP Apache runs on port 80. Use: <code>http://localhost/campusflow/</code>
+        </div>
+
+        <div class="step">
+            <h2>Step 1: Start XAMPP</h2>
+            <p>1. Open <strong>XAMPP Control Panel</strong></p>
+            <p>2. Click <strong>"Start"</strong> for <strong>Apache</strong> (wait until it turns GREEN)</p>
+            <p>3. Click <strong>"Start"</strong> for <strong>MySQL</strong> (wait until it turns GREEN)</p>
+            <p>4. Both must show <strong>"Running"</strong> status</p>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Verify Apache is Running</h2>
+            <p>1. Open browser and go to: <code>http://localhost/</code></p>
+            <p>2. You should see the <strong>XAMPP welcome page</strong></p>
+            <p>3. If you see this, Apache is working! ✅</p>
+        </div>
+
+        <div class="step">
+            <h2>Step 3: Check Project Location</h2>
+            <p>Your project MUST be in:</p>
+            <p><code>C:\xampp\htdocs\campusflow\</code></p>
+            <p>If it's not there:</p>
+            <ul>
+                <li>Copy your project folder to <code>C:\xampp\htdocs\</code></li>
+                <li>Rename it to <code>campusflow</code></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 4: Setup Database</h2>
+            <p>1. Open: <code>http://localhost/phpmyadmin</code></p>
+            <p>2. Click <strong>"New"</strong> → Database name: <code>campus_flow</code> → <strong>"Create"</strong></p>
+            <p>3. Select <code>campus_flow</code> database</p>
+            <p>4. Click <strong>"Import"</strong> tab</p>
+            <p>5. Choose <code>database.sql</code> file → Click <strong>"Go"</strong></p>
+        </div>
+
+        <div class="step">
+            <h2>Step 5: Access Your Application</h2>
+            <p><strong>✅ Correct URLs (use these):</strong></p>
+            <ul>
+                <li><code>http://localhost/campusflow/</code></li>
+                <li><code>http://localhost/campusflow/index.html</code></li>
+                <li><code>http://localhost/campusflow/check_setup.php</code></li>
+            </ul>
+            <p><strong>❌ Wrong URLs (don't use these):</strong></p>
+            <ul>
+                <li><code>localhost:8080</code> (nothing runs here)</li>
+                <li><code>http://127.0.0.1:5500/</code> (Live Server - no PHP)</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <strong>⚠️ Apache Won't Start?</strong><br>
+            Port 80 might be in use. Close Skype or change Apache port to 8080 in XAMPP config.<br>
+            Then use: <code>http://localhost:8080/campusflow/</code>
+        </div>
+
+        <div class="step">
+            <h2>Step 6: Test Your Setup</h2>
+            <p>Click the button below to test your setup:</p>
+            <a href="check_setup.php" class="button">Run Setup Check</a>
+            <a href="index.html" class="button" style="margin-left: 10px;">Go to Application</a>
+        </div>
+
+        <div class="success">
+            <strong>✅ Quick Checklist:</strong><br>
+            [ ] Apache is running (green in XAMPP)<br>
+            [ ] MySQL is running (green in XAMPP)<br>
+            [ ] Project is in C:\xampp\htdocs\campusflow\<br>
+            [ ] Database "campus_flow" exists<br>
+            [ ] Accessing via http://localhost/campusflow/<br>
+            [ ] NOT using localhost:8080 (unless you changed Apache port)
+        </div>
+
+        <div class="step">
+            <h2>Need More Help?</h2>
+            <p>Check these files:</p>
+            <ul>
+                <li><code>FIX_CONNECTION_REFUSED.txt</code> - Detailed fix guide</li>
+                <li><code>FIX_500_ERROR_NOW.txt</code> - Fix 500 errors</li>
+                <li><code>QUICK_START.txt</code> - Quick reference</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

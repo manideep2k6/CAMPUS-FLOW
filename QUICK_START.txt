@@ -1,0 +1,54 @@
+QUICK START GUIDE - FIX 500 ERROR
+==================================
+
+⚠️ IMPORTANT: You MUST use XAMPP, NOT VS Code Live Server!
+
+CURRENT PROBLEM:
+- You're using VS Code Live Server (port 5500)
+- Live Server DOES NOT run PHP
+- That's why you get 500 error
+
+SOLUTION (3 STEPS):
+
+STEP 1: Copy Files to XAMPP
+----------------------------
+1. Copy your entire project to:
+   C:\xampp\htdocs\campusflow\
+
+2. Your files should be directly in:
+   C:\xampp\htdocs\campusflow\index.html
+   C:\xampp\htdocs\campusflow\auth.js
+   C:\xampp\htdocs\campusflow\config.php
+   C:\xampp\htdocs\campusflow\api\auth.php
+   etc.
+
+STEP 2: Start XAMPP
+--------------------
+1. Open XAMPP Control Panel
+2. Click "Start" for Apache (wait for it to turn green)
+3. Click "Start" for MySQL (wait for it to turn green)
+
+STEP 3: Setup Database
+-----------------------
+1. Open: http://localhost/phpmyadmin
+2. Click "New" → Database name: "campus_flow" → Create
+3. Click "Import" → Choose "database.sql" → Go
+
+STEP 4: Test
+------------
+1. Open: http://localhost/campusflow/test_php.php
+2. If all green, open: http://localhost/campusflow/
+3. Try to register/login
+
+THAT'S IT! Should work now.
+
+If still getting errors, check:
+- Apache is running (green in XAMPP)
+- MySQL is running (green in XAMPP)
+- Database exists in phpMyAdmin
+- Files are in correct folder
+
+URLS TO USE:
+- Application: http://localhost/campusflow/
+- NOT: http://127.0.0.1:5500/ (this won't work!)
+
